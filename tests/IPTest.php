@@ -33,8 +33,8 @@ class IPTest extends TestCase
     public function testEmptyIp(): void
     {
         $locator = new Locator();
+        $this->expectException(\InvalidArgumentException::class);
         $location = $locator->locate('');
-        self::assertNull($location);
     }
 
     public function testFieldsEqualTo(): void
