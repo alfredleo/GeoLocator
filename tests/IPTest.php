@@ -26,8 +26,8 @@ class IPTest extends TestCase
     public function testInvalidIP(): void
     {
         $locator = new Locator();
+        $this->expectException(\InvalidArgumentException::class);
         $location = $locator->locate('invalid');
-        self::assertNull($location);
     }
 
     public function testEmptyIp(): void
