@@ -11,6 +11,9 @@ class IPTest extends TestCase
     public function testSuccess(): void
     {
         $locator = new Locator();
+        /** @var array{status:string,country:string,countryCode:string,region:string,regionName:string,city:string,
+         *     zip:string,lat:string,lon:string,timezone:string,isp:string,org:string,as:string} $location
+         */
         $location = $locator->locate('8.8.8.8');
         self::assertNotNull($location);
         self::assertEquals('success', $location['status']);
@@ -40,6 +43,9 @@ class IPTest extends TestCase
     public function testFieldsEqualTo(): void
     {
         $locator = new Locator();
+        /** @var array{status:string,country:string,countryCode:string,region:string,regionName:string,city:string,
+         *     zip:string,lat:string,lon:string,timezone:string,isp:string,org:string,as:string} $location
+         */
         $location = $locator->locate('8.8.8.8');
         self::assertEquals('United States', $location['country']);
         self::assertEquals('US', $location['countryCode']);
