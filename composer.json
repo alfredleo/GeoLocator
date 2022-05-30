@@ -23,7 +23,7 @@
     "scripts": {
         "test": [
             "Composer\\Config::disableProcessTimeout",
-            "vendor/bin/phpunit"
+            "./vendor/bin/phpunit  --colors=always"
         ]
     }
 }
