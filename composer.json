@@ -29,7 +29,7 @@
         ],
         "phpstan": "./vendor/bin/phpstan analyse src tests --level 9",
         "phpstan-full": "./vendor/bin/phpstan analyse src tests --level 9 --memory-limit=1G --debug --verbose",
-        "psalm": "./vendor/bin/psalm --config=psalm.xml --memory-limit=1G --no-progress",
-        "psalm-full": "./vendor/bin/psalm --config=psalm.xml --memory-limit=1G --no-progress --debug  --show-info=true"
+        "psalm": "./vendor/bin/psalm --config=psalm.xml --memory-limit=1G  --show-info=true",
+        "psalm-full": "./vendor/bin/psalm --config=psalm.xml --memory-limit=1G --no-progress --debug --show-info=true"
     }
 }
