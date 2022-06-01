@@ -7,11 +7,10 @@ class Locator
 {
     /**
      * @param string $string
-     * @return array{status:string,country:string,countryCode:string,region:string,regionName:string,city:string,
-     *     zip:string,lat:string,lon:string,timezone:string,isp:string,org:string,as:string}|null
+     * @return Location|null
      * @throws \InvalidArgumentException
      */
-    public function locate(string $string): ?array
+    public function locate(string $string): ?Location
     {
         if (!filter_var($string, FILTER_VALIDATE_IP)) {
             throw new \InvalidArgumentException('Invalid IP address');
@@ -21,12 +20,9 @@ class Locator
         if ($response === false) {
             return null;
         }
-        /** @var array{status:string,country:string,countryCode:string,region:string,regionName:string,city:string,
-         *     zip:string,lat:string,lon:string,timezone:string,isp:string,org:string,as:string} $data
-         */
         $data = json_decode($response, true);
         if ($data['status'] === 'success') {
-            return $data;
+            return new Location($data['country'], $data['countryCode'], $data['regionName'], $data['region'], $data['city']);
         }
         return null;
     }
